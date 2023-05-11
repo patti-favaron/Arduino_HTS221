@@ -9,6 +9,23 @@ image:https://github.com/{repository-owner}/{repository-name}/actions/workflows/
 
 Allows you to read the temperature and humidity sensors of your Nano 33 BLE Sense.
 
+== The HTS221: very short introduction ==
+
+The HTS221 is a temperature and humidity sensor designed and manufactured by ST Microelectronics, and currently facing end-of-life.
+
+Its main use has been within air conditioning plants and domestic appliances, where it can provide alarm and/or control functions.
+
+The data sheet can be downloaded https://www.st.com/resource/en/datasheet/hts221.pdf[here] (link checked on 11. 06. 2023).
+
+The distinctive feature of HTS221, compared to other temperature and humidity sensors, is its programmability. Besides user configuration od things like data acquisition modes and rate, and unlike most thermo-hygrometric chips on the market, the HTS221 also allows user change of calibration parameters. This may detract somewhat from ease of use, but in exchange allows engineers and users to improve the sensor response in terms of accuracy (anyway, all chips present on the market are factory-calibrated by ST Microelectronics).
+
+== User calibration ==
+
+Calibration parameters can be changed by users using appropriate calls to the Wire.h library (no support is given to date in this library).
+
+User calibration data are stored into HTS221 volatile memory, and are reloaded from the chip's flash memory whenever a "chip reboot" event occurs, or after a power-up.
+
+It is recommended to all users wishing to change the chip's calibration parameters to provide their off-chip storage (e.g. on flash or EEPROM), and to write the stored parameters to HTS221 after any reboot/power-up.
 
 == License ==
 
